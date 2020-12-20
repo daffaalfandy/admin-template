@@ -1,24 +1,27 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import Home from "../views/Home.vue";
 import Dash from "../Dash";
+import Dashboard from "../views/Dashboard";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    // eslint-disable-next-line prettier/prettier
     component: Dash,
-    // eslint-disable-next-line prettier/prettier
+    children: [
+      {
+        path: "",
+        name: "Dashboard",
+        component: Dashboard,
+      },
+    ],
   },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  // eslint-disable-next-line prettier/prettier
   routes,
 });
 
